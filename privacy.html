@@ -1,71 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Orbiter | Kervan</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-    line-height: 1.7;
-    color: #1a1a1a;
-    background: #ffffff;
-  }
-  h1 { font-size: 28px; margin-bottom: 8px; }
-  h2 { font-size: 20px; margin-top: 36px; }
-  .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
-  a { color: #0066cc; }
-  ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Privacy Policy / Gizlilik Politikası — Orbiter | Kervan Games</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #ffffff; --text: #1a1a1a; --muted: #666; --border: #dedede; --accent: #0066cc; --panel: #f7f7f7; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #121212; --text: #f2f2f2; --muted: #aaa; --border: #343434; --accent: #6ab0ff; --panel: #1c1c1c; } }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.7; color: var(--text); background: var(--bg); }
+    h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+    h2 { font-size: 20px; line-height: 1.35; margin-top: 36px; }
+    h3 { font-size: 17px; margin-top: 24px; }
+    .updated { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+    .language-switch { display: flex; gap: 8px; margin-bottom: 28px; }
+    .language-switch button { appearance: none; border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; color: var(--text); background: var(--panel); font: inherit; font-size: 14px; cursor: pointer; }
+    .language-switch button.active { color: var(--bg); background: var(--text); border-color: var(--text); }
+    .notice { padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); }
+    a { color: var(--accent); }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    [data-language] { display: none; }
+    [data-language].active { display: block; }
+  </style>
 </head>
 <body>
+  <div class="language-switch" role="group" aria-label="Language / Dil">
+    <button id="lang-en" type="button" onclick="setLanguage('en')">English</button>
+    <button id="lang-tr" type="button" onclick="setLanguage('tr')">Türkçe</button>
+  </div>
 
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: 14 July 2026</p>
+  <main data-language="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 12 August 2026</p>
+    <p>This Privacy Policy explains how Kervan Games ("Kervan Games", "we", "us") handles information in connection with the mobile game <strong>Orbiter: Ring Rush</strong> (the "Game").</p>
 
-<p>This Privacy Policy explains how Kervan ("we", "us") handles information in connection with the mobile game <strong>Orbiter</strong> (the "Game"). By downloading or using the Game, you agree to the practices described below.</p>
+    <h2>Information We Process</h2>
+    <p>The Game does not ask for your real name, email address, phone number, or a password. When online features are used, the Game creates an anonymous PlayFab player account so that scores and preferences can be synchronized.</p>
+    <ul>
+      <li><strong>Account and device identifiers:</strong> an app installation/custom identifier and a PlayFab player ID. If you voluntarily enable account recovery, the relevant Apple Game Center or Google Play Games account identifier or authentication credential is used to link or restore the anonymous profile.</li>
+      <li><strong>Public profile data:</strong> the nickname you choose. Your nickname, score, and leaderboard position are visible to other players on the global leaderboard.</li>
+      <li><strong>Gameplay data:</strong> high score, rings, combo, run duration, revive use, game version, tutorial progress, session events, and similar gameplay or app interaction data.</li>
+      <li><strong>Safety and moderation data:</strong> players you block and reports you submit about offensive nicknames, including the reported player identifier and report reason.</li>
+      <li><strong>Technical and analytics data:</strong> device model, operating system, language, country or approximate/coarse location, app version, diagnostics, performance, and usage events.</li>
+      <li><strong>Advertising data:</strong> advertising identifiers and ad interaction/measurement data used by Google AdMob, subject to your device and consent settings.</li>
+    </ul>
 
-<h2>Information We Collect</h2>
-<p>We do not ask you to create an account, and we do not collect your name, email address, or phone number. The Game uses third-party services that may automatically collect certain information:</p>
-<ul>
-  <li><strong>Usage and gameplay data</strong> — such as when a game session starts and ends, score, session duration, and progress through the tutorial.</li>
-  <li><strong>Device and technical data</strong> — such as device model, operating system version, language, country, and app version.</li>
-  <li><strong>Advertising identifiers</strong> — such as the Google Advertising ID, used to deliver and measure advertisements.</li>
-</ul>
+    <h2>How We Use Information</h2>
+    <ul>
+      <li>Provide the anonymous profile, global leaderboard, nickname, blocking, reporting, and account recovery features.</li>
+      <li>Synchronize progress and protect the integrity and safety of the Game.</li>
+      <li>Analyze performance, diagnose problems, and improve gameplay.</li>
+      <li>Display, measure, and where permitted personalize interstitial and optional rewarded advertisements.</li>
+      <li>Comply with legal obligations and enforce our rules.</li>
+    </ul>
 
-<h2>Third-Party Services</h2>
-<p>The Game uses the following third-party services, which have their own privacy policies:</p>
-<ul>
-  <li><strong>Google Analytics for Firebase</strong> — used to understand how players use the Game so we can improve it. See the <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a>.</li>
-  <li><strong>Google AdMob</strong> — used to display advertisements, including interstitial ads and optional rewarded video ads. See the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Advertising Policy</a>.</li>
-</ul>
+    <h2>Local Storage and Reminders</h2>
+    <p>Settings and certain progress or queued actions are also stored locally on your device. Reminder notifications are scheduled locally after you grant notification permission. Orbiter does not use a remote push token or send notification content from our servers for these reminders. You can disable reminders in the Game or in your device settings.</p>
 
-<h2>Advertising</h2>
-<p>The Game displays advertisements provided by Google AdMob. Rewarded video ads are entirely optional; you may choose whether to watch them. Advertising partners may use device identifiers to show ads that are more relevant to you and to measure ad performance.</p>
-<p>You can limit ad personalisation at any time through your device settings (for example, "Opt out of Ads Personalisation" in Android settings).</p>
+    <h2>Third-Party Services</h2>
+    <p>These providers process data under their own privacy terms:</p>
+    <ul>
+      <li><strong>Microsoft PlayFab</strong> — anonymous player accounts, leaderboard, profile recovery, player data, reporting, and blocking. See the <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a>.</li>
+      <li><strong>Google Analytics for Firebase</strong> — usage analytics and app improvement. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</li>
+      <li><strong>Google AdMob</strong> — interstitial and optional rewarded advertisements. See <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">How Google uses information for advertising</a>.</li>
+      <li><strong>Apple Game Center / Google Play Games</strong> — optional platform authentication used only when you choose profile recovery. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+    </ul>
 
-<h2>Local Storage</h2>
-<p>Your high score and settings preferences (sound, music, vibration) are stored locally on your device and are not transmitted to us.</p>
+    <h2>Advertising Choices</h2>
+    <p>Rewarded ads are optional. You can control ad personalization, tracking permission, or reset/limit advertising identifiers through your iOS or Android privacy settings. The choices available depend on your device and region.</p>
 
-<h2>Children</h2>
-<p>The Game is intended for a general audience and is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will take appropriate steps.</p>
+    <h2 id="your-rights">Retention, Deletion, and Your Rights</h2>
+    <p>We retain online profile, leaderboard, moderation, and gameplay information for as long as needed to operate and protect the Game, meet legal requirements, and resolve disputes. Third-party providers apply their own retention periods.</p>
+    <p class="notice"><strong>Delete your account:</strong> open your profile/social area in the Game and use <strong>Delete Account</strong>. This sends a deletion request for the PlayFab profile and clears the related local profile data after the request is accepted. If you cannot access the Game, email us using the address below. We may ask for your PlayFab player ID or other information needed to locate the anonymous profile.</p>
+    <p>Depending on your location, you may have rights to access, correct, delete, restrict, or object to processing of personal data, and to lodge a complaint with a data protection authority. Contact us to exercise these rights.</p>
 
-<h2>Data Retention</h2>
-<p>Analytics data is retained by Google in accordance with its own retention policies. We do not maintain a separate database of user information.</p>
+    <h2>Children</h2>
+    <p>The Game is intended for a general audience and is not directed to children under 13. We do not knowingly ask children for real-world contact information. If you believe a child has provided personal information, contact us so we can take appropriate action.</p>
 
-<h2>Your Rights</h2>
-<p>Depending on your location, you may have rights regarding your data, including the right to access, correct, or delete it. To exercise these rights, contact us using the details below.</p>
+    <h2>International Transfers and Security</h2>
+    <p>Our service providers may process information in countries other than yours. We and our providers use reasonable technical and organizational safeguards, but no method of transmission or storage is completely secure.</p>
 
-<h2>Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy when the Game or legal requirements change. We will post the revised policy here and update the date above.</p>
 
-<h2>Contact</h2>
-<p>If you have any questions about this Privacy Policy, contact us at:<br>
-<a href="mailto:kervangames@outlook.com">kervangames@outlook.com</a></p>
+    <h2>Contact</h2>
+    <p>Questions or privacy requests: <a href="mailto:kervangames@outlook.com">kervangames@outlook.com</a></p>
+  </main>
 
+  <main data-language="tr">
+    <h1>Gizlilik Politikası</h1>
+    <p class="updated">Son güncelleme: 12 Ağustos 2026</p>
+    <p>Bu Gizlilik Politikası, Kervan Games'in ("Kervan Games", "biz") <strong>Orbiter: Ring Rush</strong> mobil oyunuyla ("Oyun") bağlantılı bilgileri nasıl işlediğini açıklar.</p>
+
+    <h2>İşlediğimiz Bilgiler</h2>
+    <p>Oyun sizden gerçek adınızı, e-posta adresinizi, telefon numaranızı veya bir parola girmenizi istemez. Çevrimiçi özellikler kullanıldığında skorları ve tercihleri eşitlemek için anonim bir PlayFab oyuncu hesabı oluşturulur.</p>
+    <ul>
+      <li><strong>Hesap ve cihaz tanımlayıcıları:</strong> uygulama kurulumuna özel bir tanımlayıcı ve PlayFab oyuncu kimliği. Hesap kurtarmayı isteğe bağlı olarak etkinleştirirseniz anonim profili bağlamak veya geri yüklemek için ilgili Apple Game Center ya da Google Play Games hesap tanımlayıcısı veya doğrulama bilgisi kullanılır.</li>
+      <li><strong>Herkese açık profil verileri:</strong> seçtiğiniz kullanıcı adı. Kullanıcı adınız, skorunuz ve sıralamanız global liderlik tablosundaki diğer oyuncular tarafından görülebilir.</li>
+      <li><strong>Oynanış verileri:</strong> en yüksek skor, halkalar, kombo, koşu süresi, dirilme kullanımı, oyun sürümü, eğitim ilerlemesi, oturum olayları ve benzer oynanış veya uygulama etkileşimleri.</li>
+      <li><strong>Güvenlik ve moderasyon verileri:</strong> engellediğiniz oyuncular ile uygunsuz kullanıcı adları için gönderdiğiniz bildirimler; bildirilen oyuncu kimliği ve bildirim nedeni dahil.</li>
+      <li><strong>Teknik ve analiz verileri:</strong> cihaz modeli, işletim sistemi, dil, ülke veya yaklaşık konum, uygulama sürümü, tanılama, performans ve kullanım olayları.</li>
+      <li><strong>Reklam verileri:</strong> cihaz ve izin ayarlarınıza tabi olarak Google AdMob tarafından kullanılan reklam tanımlayıcıları ile reklam etkileşim ve ölçüm verileri.</li>
+    </ul>
+
+    <h2>Bilgileri Nasıl Kullanıyoruz</h2>
+    <ul>
+      <li>Anonim profil, global liderlik tablosu, kullanıcı adı, engelleme, bildirme ve hesap kurtarma özelliklerini sunmak.</li>
+      <li>İlerlemeyi eşitlemek, Oyunun bütünlüğünü ve güvenliğini korumak.</li>
+      <li>Performansı analiz etmek, sorunları teşhis etmek ve oynanışı geliştirmek.</li>
+      <li>Geçiş reklamlarını ve isteğe bağlı ödüllü reklamları göstermek, ölçmek ve izin verilen durumlarda kişiselleştirmek.</li>
+      <li>Yasal yükümlülüklere uymak ve kurallarımızı uygulamak.</li>
+    </ul>
+
+    <h2>Yerel Depolama ve Hatırlatıcılar</h2>
+    <p>Ayarlar ile belirli ilerleme ve sıraya alınmış işlemler cihazınızda yerel olarak da saklanır. Hatırlatıcı bildirimleri, bildirim izni verdikten sonra cihazınızda yerel olarak planlanır. Orbiter bu hatırlatıcılar için uzaktan bildirim belirteci kullanmaz veya sunucularımızdan bildirim içeriği göndermez. Hatırlatıcıları Oyun içinden ya da cihaz ayarlarından kapatabilirsiniz.</p>
+
+    <h2>Üçüncü Taraf Hizmetleri</h2>
+    <p>Aşağıdaki sağlayıcılar verileri kendi gizlilik koşullarına göre işler:</p>
+    <ul>
+      <li><strong>Microsoft PlayFab</strong> — anonim oyuncu hesapları, liderlik tablosu, profil kurtarma, oyuncu verileri, bildirme ve engelleme. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft Gizlilik Bildirimi</a>.</li>
+      <li><strong>Google Analytics for Firebase</strong> — kullanım analizi ve uygulamayı geliştirme. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Gizlilik ve Güvenlik</a>.</li>
+      <li><strong>Google AdMob</strong> — geçiş reklamları ve isteğe bağlı ödüllü reklamlar. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google'ın reklamcılıkta bilgileri kullanımı</a>.</li>
+      <li><strong>Apple Game Center / Google Play Games</strong> — yalnızca profil kurtarmayı seçtiğinizde kullanılan isteğe bağlı platform doğrulaması. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Gizlilik</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a>.</li>
+    </ul>
+
+    <h2>Reklam Tercihleri</h2>
+    <p>Ödüllü reklamlar isteğe bağlıdır. Reklam kişiselleştirmesini, takip iznini ve reklam tanımlayıcılarını iOS veya Android gizlilik ayarlarından yönetebilirsiniz. Kullanılabilir seçenekler cihazınıza ve bölgenize göre değişir.</p>
+
+    <h2 id="haklariniz">Saklama, Silme ve Haklarınız</h2>
+    <p>Çevrimiçi profil, liderlik tablosu, moderasyon ve oynanış bilgilerini Oyunu işletmek ve korumak, yasal gereklilikleri karşılamak ve uyuşmazlıkları çözmek için gerektiği sürece saklarız. Üçüncü taraf sağlayıcılar kendi saklama sürelerini uygular.</p>
+    <p class="notice"><strong>Hesabınızı silmek için:</strong> Oyun içindeki profil/sosyal alanını açın ve <strong>Hesabı Sil</strong> seçeneğini kullanın. Bu işlem PlayFab profili için silme talebi gönderir ve talep kabul edildikten sonra ilgili yerel profil verilerini temizler. Oyuna erişemiyorsanız aşağıdaki adresten bize e-posta gönderin. Anonim profili bulabilmek için PlayFab oyuncu kimliğinizi veya gerekli başka bilgileri isteyebiliriz.</p>
+    <p>Bulunduğunuz yere bağlı olarak kişisel verilerinize erişme, düzeltme, silme, işlemeyi kısıtlama veya işlemeye itiraz etme ve bir veri koruma makamına şikâyette bulunma haklarınız olabilir. Bu hakları kullanmak için bizimle iletişime geçin.</p>
+
+    <h2>Çocuklar</h2>
+    <p>Oyun genel kitleye yöneliktir ve 13 yaş altındaki çocukları hedeflemez. Çocuklardan bilerek gerçek dünyadaki iletişim bilgilerini istemeyiz. Bir çocuğun kişisel bilgi verdiğini düşünüyorsanız gerekli işlemleri yapabilmemiz için bizimle iletişime geçin.</p>
+
+    <h2>Uluslararası Aktarımlar ve Güvenlik</h2>
+    <p>Hizmet sağlayıcılarımız bilgileri bulunduğunuz ülke dışındaki ülkelerde işleyebilir. Biz ve sağlayıcılarımız makul teknik ve organizasyonel önlemler uygularız; ancak hiçbir aktarım veya saklama yöntemi tamamen güvenli değildir.</p>
+
+    <h2>Bu Politikadaki Değişiklikler</h2>
+    <p>Oyun veya yasal gereklilikler değiştiğinde bu Gizlilik Politikasını güncelleyebiliriz. Güncel metni burada yayımlar ve yukarıdaki tarihi değiştiririz.</p>
+
+    <h2>İletişim</h2>
+    <p>Sorularınız veya gizlilik talepleriniz için: <a href="mailto:kervangames@outlook.com">kervangames@outlook.com</a></p>
+  </main>
+
+  <script>
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-language]').forEach(function (section) {
+        section.classList.toggle('active', section.getAttribute('data-language') === language);
+      });
+      document.querySelectorAll('.language-switch button').forEach(function (button) {
+        var active = button.id === 'lang-' + language;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      try { localStorage.setItem('orbiter-privacy-language', language); } catch (error) {}
+    }
+
+    var savedLanguage = null;
+    try { savedLanguage = localStorage.getItem('orbiter-privacy-language'); } catch (error) {}
+    var deviceLanguage = (navigator.language || 'en').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+    setLanguage(savedLanguage === 'tr' || savedLanguage === 'en' ? savedLanguage : deviceLanguage);
+  </script>
 </body>
 </html>
