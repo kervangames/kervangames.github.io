@@ -6,13 +6,13 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d0f14">
 
-    <title>Kervan Games – Oyunlarımız</title>
-    <meta name="description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin; App Store ve Google Play'den indirin.">
+    <title>Kervan Games – Oyunlarımız (Google Play)</title>
+    <meta name="description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve Google Play'den indirin.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kervan Games">
-    <meta property="og:title" content="Kervan Games – Oyunlarımız">
-    <meta property="og:description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin; App Store ve Google Play'den indirin.">
+    <meta property="og:title" content="Kervan Games – Oyunlarımız (Google Play)">
+    <meta property="og:description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve Google Play'den indirin.">
 
     <style>
         :root {
@@ -25,8 +25,6 @@
             --muted: #9aa0ab;
             --accent: #4c8dff;
             --accent-hover: #6ba0ff;
-            --play-green: #34a853;
-            --play-green-hover: #4caf62;
             --radius: 16px;
         }
 
@@ -81,143 +79,13 @@
         }
 
         main {
-            padding: 28px 0 40px;
-        }
-
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 0 0 20px;
-        }
-
-        .filter-button {
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--surface);
-            color: var(--muted);
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
-        }
-
-        .filter-button:hover {
-            background: var(--surface-hover);
-            color: var(--ink);
-        }
-
-        .filter-button[aria-pressed="true"] {
-            background: var(--ink);
-            color: #14161c;
-            border-color: var(--ink);
-        }
-
-        .status {
-            display: flex;
-            min-height: 140px;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted);
-            text-align: center;
-            font-size: 15px;
-        }
-
-        .status[hidden],
-        .skeletons[hidden],
-        .apps[hidden],
-        .empty-state[hidden] {
-            display: none;
-        }
-
-        .loader {
-            width: 24px;
-            height: 24px;
-            margin: 0 auto 12px;
-            border: 3px solid rgba(255, 255, 255, 0.12);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .loader {
-                animation-duration: 1.6s;
-            }
+            padding: 32px 0 40px;
         }
 
         .apps {
             display: flex;
             flex-direction: column;
             gap: 14px;
-        }
-
-        .skeletons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .skeleton-card {
-            display: flex;
-            gap: 16px;
-            padding: 18px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--surface);
-        }
-
-        .skeleton-icon,
-        .skeleton-line {
-            border-radius: 8px;
-            background: linear-gradient(100deg, var(--surface-hover) 30%, rgba(255, 255, 255, 0.08) 50%, var(--surface-hover) 70%);
-            background-size: 200% 100%;
-            animation: shimmer 1.4s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: 140% 0; }
-            100% { background-position: -40% 0; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .skeleton-icon,
-            .skeleton-line {
-                animation: none;
-                background: var(--surface-hover);
-            }
-        }
-
-        .skeleton-icon {
-            width: 72px;
-            height: 72px;
-            flex: 0 0 72px;
-            border-radius: 16px;
-        }
-
-        .skeleton-body {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .skeleton-line--wide { width: 60%; height: 12px; }
-        .skeleton-line--mid { width: 35%; height: 12px; }
-
-        .empty-state {
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 14.5px;
-            border: 1px dashed var(--border);
-            border-radius: var(--radius);
         }
 
         .app-card {
@@ -293,20 +161,16 @@
             -webkit-line-clamp: 2;
         }
 
-        .app-stores {
-            display: flex;
-            flex: none;
-            flex-direction: column;
-            gap: 8px;
-        }
-
         .store-button {
+            flex: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 9px 15px;
             border-radius: 10px;
-            font-size: 13px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 13.5px;
             font-weight: 700;
             text-decoration: none;
             white-space: nowrap;
@@ -314,22 +178,8 @@
             transition: background 150ms ease;
         }
 
-        .store-button--apple {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .store-button--apple:hover {
+        .store-button:hover {
             background: var(--accent-hover);
-        }
-
-        .store-button--google {
-            background: var(--play-green);
-            color: #fff;
-        }
-
-        .store-button--google:hover {
-            background: var(--play-green-hover);
         }
 
         .store-button:active {
@@ -362,11 +212,8 @@
                 flex-basis: calc(100% - 76px);
             }
 
-            .app-stores {
-                flex-direction: row;
-                flex-wrap: wrap;
+            .store-button {
                 margin-left: 76px;
-                width: calc(100% - 76px);
             }
         }
     </style>
@@ -377,43 +224,11 @@
         <header class="page-header">
             <p class="brand">Kervan Games</p>
             <h1>Oyunlarımız</h1>
-            <p class="lead">App Store ve Google Play'deki tüm oyunlarımız aşağıda otomatik olarak listelenir.</p>
+            <p class="lead">Google Play'deki tüm oyunlarımız aşağıda listelenir.</p>
         </header>
 
         <main>
-            <div class="filters" role="group" aria-label="Mağazaya göre filtrele">
-                <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tümü</button>
-                <button type="button" class="filter-button" data-filter="app-store" aria-pressed="false">App Store</button>
-                <button type="button" class="filter-button" data-filter="google-play" aria-pressed="false">Google Play</button>
-            </div>
-
-            <div id="status" class="status">
-                <div>
-                    <div class="loader"></div>
-                    Oyunlar yükleniyor…
-                </div>
-            </div>
-
-            <div id="skeletons" class="skeletons" hidden aria-hidden="true">
-                <div class="skeleton-card">
-                    <div class="skeleton-icon"></div>
-                    <div class="skeleton-body">
-                        <div class="skeleton-line skeleton-line--wide"></div>
-                        <div class="skeleton-line skeleton-line--mid"></div>
-                    </div>
-                </div>
-                <div class="skeleton-card">
-                    <div class="skeleton-icon"></div>
-                    <div class="skeleton-body">
-                        <div class="skeleton-line skeleton-line--wide"></div>
-                        <div class="skeleton-line skeleton-line--mid"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="empty-state" class="empty-state" hidden>Bu filtrede gösterilecek oyun bulunamadı.</div>
-
-            <div id="apps" class="apps" hidden></div>
+            <div id="apps" class="apps"></div>
         </main>
 
         <footer class="page-footer">
@@ -425,7 +240,30 @@
         (function () {
             "use strict";
 
-            // ---------------- Ortak yardımcılar ----------------
+            // Google Play, geliştiricinin tüm oyunlarını anahtarsız/CORS'a uygun
+            // şekilde döndüren herkese açık bir API sunmuyor (Play Developer API
+            // OAuth + servis hesabı gizli anahtarı gerektiriyor ve bunu statik bir
+            // sitede istemci tarafında saklamak güvenlik açığı olur). Bu yüzden
+            // liste burada elle güncellenir: yeni oyun çıktığında bu diziye bir
+            // satır eklemek yeterlidir.
+            var games = [
+                {
+                    name: "Orbiter",
+                    category: "Arcade",
+                    price: "Ücretsiz",
+                    note: "Reklam içerir",
+                    description: "Zamanlama, sinir ve iki halka arasındaki boşlukla ilgili hızlı, minimalist bir arcade oyunu. Boşluğu hizalayın, içinden geçin ve zinciri canlı tutun.",
+                    iconUrl: "",
+                    storeUrl: "https://play.google.com/store/apps/details?id=com.kervan.orbiter"
+                }
+            ];
+
+            var appsElement = document.getElementById("apps");
+            var footerText = document.getElementById("footer-text");
+
+            footerText.textContent = "© " + new Date().getFullYear() + " Kervan Games";
+
+            var isAndroid = /Android/i.test(navigator.userAgent);
 
             function escapeHTML(value) {
                 return String(value == null ? "" : value).replace(/[&<>"']/g, function (character) {
@@ -433,167 +271,6 @@
                     return entities[character];
                 });
             }
-
-            function normalizeTitle(value) {
-                return String(value || "")
-                    .toLowerCase()
-                    .replace(/[^\p{L}\p{N}\s]+/gu, "")
-                    .replace(/\s+/g, " ")
-                    .trim();
-            }
-
-            function titleWords(value) {
-                var normalized = normalizeTitle(value);
-                return normalized ? normalized.split(" ") : [];
-            }
-
-            // İki başlık, normalize edilmiş kelimelerden biri diğerinin baştan
-            // itibaren tam kelime öneki olduğunda "güçlü eşleşme" sayılır.
-            // Örn. "Orbiter" ile "Orbiter Ring Rush" eşleşir; "Orbit Racer" ile
-            // "Orbiter" eşleşmez. Belirsiz durumlarda kart birleştirilmez.
-            function isStrongTitleMatch(titleA, titleB) {
-                var wordsA = titleWords(titleA);
-                var wordsB = titleWords(titleB);
-                if (!wordsA.length || !wordsB.length) {
-                    return false;
-                }
-                var shorter = wordsA.length <= wordsB.length ? wordsA : wordsB;
-                var longer = wordsA.length <= wordsB.length ? wordsB : wordsA;
-                for (var i = 0; i < shorter.length; i += 1) {
-                    if (shorter[i] !== longer[i]) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-
-            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-            var isAndroid = /Android/i.test(navigator.userAgent);
-
-            // ---------------- App Store (Apple Lookup API, JSONP) ----------------
-
-            var APPLE_DEVELOPER_ID = "6793952593";
-            var APPLE_REQUEST_TIMEOUT_MS = 8000;
-
-            var appleFallbackApps = [
-                {
-                    trackId: 6793952591,
-                    trackName: "Orbiter: Ring Rush",
-                    primaryGenreName: "Arcade",
-                    description: "Halkalardan geç, reflekslerini test et ve en yüksek skora ulaş.",
-                    formattedPrice: "Ücretsiz",
-                    artworkUrl512: "",
-                    trackViewUrl: "https://apps.apple.com/tr/app/orbiter-ring-rush/id6793952591"
-                }
-            ];
-
-            function isSafeAppStoreURL(value) {
-                if (typeof value !== "string") {
-                    return false;
-                }
-                try {
-                    var parsed = new URL(value, window.location.href);
-                    return parsed.protocol === "https:" && /(^|\.)apple\.com$/i.test(parsed.hostname);
-                } catch (error) {
-                    return false;
-                }
-            }
-
-            function getAppleStoreURL(app) {
-                var fallbackURL = "https://apps.apple.com/tr/app/id" + encodeURIComponent(String(app.trackId));
-                return isSafeAppStoreURL(app.trackViewUrl) ? app.trackViewUrl : fallbackURL;
-            }
-
-            function normalizeAppleApps(rawResults) {
-                if (!Array.isArray(rawResults)) {
-                    return [];
-                }
-
-                var filtered = rawResults.filter(function (result) {
-                    return result &&
-                        result.wrapperType === "software" &&
-                        result.kind === "software" &&
-                        String(result.artistId) === APPLE_DEVELOPER_ID &&
-                        result.trackId != null;
-                });
-
-                var deduped = Array.from(
-                    new Map(filtered.map(function (app) { return [app.trackId, app]; })).values()
-                );
-
-                deduped.sort(function (a, b) {
-                    var dateA = new Date(a.currentVersionReleaseDate || a.releaseDate || 0).getTime();
-                    var dateB = new Date(b.currentVersionReleaseDate || b.releaseDate || 0).getTime();
-                    return dateB - dateA;
-                });
-
-                return deduped;
-            }
-
-            function fetchAppleApps() {
-                return new Promise(function (resolve) {
-                    var settled = false;
-                    var scriptEl = null;
-                    var timeoutId = null;
-                    var callbackName = "__kervanAppleCallback_" + Date.now() + "_" + Math.floor(Math.random() * 1e6);
-
-                    function cleanup() {
-                        if (timeoutId !== null) {
-                            window.clearTimeout(timeoutId);
-                            timeoutId = null;
-                        }
-                        if (scriptEl && scriptEl.parentNode) {
-                            scriptEl.parentNode.removeChild(scriptEl);
-                        }
-                        try {
-                            delete window[callbackName];
-                        } catch (error) {
-                            window[callbackName] = undefined;
-                        }
-                    }
-
-                    function finish(apps) {
-                        if (settled) {
-                            return;
-                        }
-                        settled = true;
-                        cleanup();
-                        resolve(apps && apps.length ? apps : appleFallbackApps);
-                    }
-
-                    window[callbackName] = function (response) {
-                        finish(normalizeAppleApps(response && response.results));
-                    };
-
-                    timeoutId = window.setTimeout(function () {
-                        finish(null);
-                    }, APPLE_REQUEST_TIMEOUT_MS);
-
-                    scriptEl = document.createElement("script");
-                    scriptEl.src = "https://itunes.apple.com/lookup" +
-                        "?id=" + encodeURIComponent(APPLE_DEVELOPER_ID) +
-                        "&entity=software" +
-                        "&country=tr" +
-                        "&limit=200" +
-                        "&_=" + Date.now() +
-                        "&callback=" + callbackName;
-                    scriptEl.async = true;
-                    scriptEl.onerror = function () {
-                        finish(null);
-                    };
-
-                    document.body.appendChild(scriptEl);
-                });
-            }
-
-            // ---------------- Google Play (yerel statik JSON) ----------------
-
-            // GitHub Actions her gün .github/workflows/update-play-store.yml
-            // üzerinden bu dosyayı günceller. Tarayıcı hiçbir zaman Google
-            // Play'e veya üçüncü taraf bir servise doğrudan istek atmaz.
-            var PLAY_DATA_URL = "../data/playstore-apps.json";
-            var PLAY_REQUEST_TIMEOUT_MS = 8000;
 
             function isSafePlayStoreURL(value) {
                 if (typeof value !== "string") {
@@ -607,238 +284,44 @@
                 }
             }
 
-            function getPlayStoreURL(app) {
-                var fallbackURL = "https://play.google.com/store/apps/details?id=" + encodeURIComponent(app.appId);
-                return isSafePlayStoreURL(app.url) ? app.url : fallbackURL;
-            }
-
-            function normalizePlayApps(rawResults) {
-                if (!Array.isArray(rawResults)) {
-                    return [];
-                }
-
-                var filtered = rawResults.filter(function (app) {
-                    return app && typeof app.appId === "string" && typeof app.title === "string" && app.title.trim() !== "";
-                });
-
-                var deduped = Array.from(
-                    new Map(filtered.map(function (app) { return [app.appId, app]; })).values()
-                );
-
-                deduped.sort(function (a, b) {
-                    var dateA = a.updated ? new Date(a.updated).getTime() : 0;
-                    var dateB = b.updated ? new Date(b.updated).getTime() : 0;
-                    return dateB - dateA;
-                });
-
-                return deduped;
-            }
-
-            function fetchPlayApps() {
-                var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
-                var timeoutId = window.setTimeout(function () {
-                    if (controller) {
-                        controller.abort();
-                    }
-                }, PLAY_REQUEST_TIMEOUT_MS);
-
-                return fetch(PLAY_DATA_URL, { signal: controller ? controller.signal : undefined })
-                    .then(function (response) {
-                        if (!response.ok) {
-                            throw new Error("HTTP " + response.status);
-                        }
-                        return response.json();
-                    })
-                    .then(function (payload) {
-                        return normalizePlayApps(payload && payload.apps);
-                    })
-                    .catch(function () {
-                        // Yerel JSON hiç yoksa, bozuksa ya da zaman aşımına uğrarsa
-                        // Google Play kartlarını sessizce boş bırak; sayfanın geri
-                        // kalanı (App Store dahil) bundan etkilenmez.
-                        return [];
-                    })
-                    .finally(function () {
-                        window.clearTimeout(timeoutId);
-                    });
-            }
-
-            // ---------------- Birleştirme ve görüntüleme ----------------
-
-            var appsElement = document.getElementById("apps");
-            var statusElement = document.getElementById("status");
-            var skeletonsElement = document.getElementById("skeletons");
-            var emptyStateElement = document.getElementById("empty-state");
-            var footerText = document.getElementById("footer-text");
-            var filterButtons = Array.prototype.slice.call(document.querySelectorAll(".filter-button"));
-
-            footerText.textContent = "© " + new Date().getFullYear() + " Kervan Games";
-
-            var currentFilter = "all";
-            var mergedEntries = [];
-
-            function buildAppleEntry(app) {
-                return {
-                    title: app.trackName || "Kervan Games",
-                    genre: app.primaryGenreName || "Oyun",
-                    description: app.description || "",
-                    icon: app.artworkUrl512 || "",
-                    stores: [{
-                        type: "app-store",
-                        label: "App Store\u2019da Gör",
-                        url: getAppleStoreURL(app),
-                        priceText: app.formattedPrice || "App Store'da gör"
-                    }]
-                };
-            }
-
-            function buildPlayEntry(app) {
-                return {
-                    title: app.title || "Kervan Games",
-                    genre: app.genre || "Oyun",
-                    description: app.summary || "",
-                    icon: app.icon || "",
-                    stores: [{
-                        type: "google-play",
-                        label: "Google Play\u2019de Gör",
-                        url: getPlayStoreURL(app),
-                        priceText: app.priceText || (app.free ? "Ücretsiz" : "Google Play'de gör")
-                    }]
-                };
-            }
-
-            function mergeApps(appleApps, playApps) {
-                var appleEntries = appleApps.map(buildAppleEntry);
-                var playEntries = playApps.map(buildPlayEntry);
-                var usedPlayIndexes = new Set();
-                var merged = [];
-
-                appleEntries.forEach(function (appleEntry) {
-                    var matchIndex = -1;
-                    for (var i = 0; i < playEntries.length; i += 1) {
-                        if (usedPlayIndexes.has(i)) {
-                            continue;
-                        }
-                        if (isStrongTitleMatch(appleEntry.title, playEntries[i].title)) {
-                            matchIndex = i;
-                            break;
-                        }
-                    }
-
-                    if (matchIndex === -1) {
-                        merged.push(appleEntry);
-                        return;
-                    }
-
-                    var playEntry = playEntries[matchIndex];
-                    usedPlayIndexes.add(matchIndex);
-
-                    merged.push({
-                        title: appleEntry.title.length >= playEntry.title.length ? appleEntry.title : playEntry.title,
-                        genre: appleEntry.genre || playEntry.genre,
-                        description: appleEntry.description || playEntry.description,
-                        icon: appleEntry.icon || playEntry.icon,
-                        stores: appleEntry.stores.concat(playEntry.stores)
-                    });
-                });
-
-                playEntries.forEach(function (playEntry, index) {
-                    if (!usedPlayIndexes.has(index)) {
-                        merged.push(playEntry);
-                    }
-                });
-
-                return merged;
-            }
-
-            function createStoreButton(store) {
-                var buttonClass = store.type === "app-store" ? "store-button store-button--apple" : "store-button store-button--google";
-                var target = isIOS && store.type === "app-store" ? "" :
-                    (isAndroid && store.type === "google-play" ? "" : ' target="_blank" rel="noopener noreferrer"');
-                var url = escapeHTML(store.url);
-                var label = escapeHTML(store.label);
-                return '<a class="' + buttonClass + '" href="' + url + '"' + target + ">" + label + "</a>";
-            }
-
-            function createAppCard(entry) {
-                var name = escapeHTML(entry.title);
-                var genre = escapeHTML(entry.genre || "Oyun");
-                var priceText = escapeHTML(entry.stores[0] && entry.stores[0].priceText || "");
-                var description = escapeHTML(entry.description || "Oyunu mağazadan görüntüleyebilirsin.");
+            function createAppCard(game) {
+                var name = escapeHTML(game.name || "Kervan Games");
+                var category = escapeHTML(game.category || "Oyun");
+                var price = escapeHTML(game.price || "Google Play'de gör");
+                var note = game.note ? escapeHTML(game.note) : "";
+                var description = escapeHTML(game.description || "Oyunu Google Play üzerinden görüntüleyebilirsin.");
+                var storeURL = isSafePlayStoreURL(game.storeUrl) ? escapeHTML(game.storeUrl) : "";
+                var linkTarget = isAndroid ? "" : ' target="_blank" rel="noopener noreferrer"';
+                var linkAriaLabel = escapeHTML(name + " uygulamasını Google Play'de görüntüle");
 
                 var iconHTML;
-                if (entry.icon) {
-                    iconHTML = '<img class="app-icon" src="' + escapeHTML(entry.icon) + '" alt="" loading="lazy">';
+                if (game.iconUrl) {
+                    iconHTML = '<img class="app-icon" src="' + escapeHTML(game.iconUrl) + '" alt="" loading="lazy">';
                 } else {
                     iconHTML = '<div class="app-icon-fallback" aria-hidden="true">' +
                         escapeHTML(name.charAt(0).toUpperCase()) + "</div>";
                 }
 
-                var metaText = genre + (priceText ? " · " + priceText : "");
-                var storesHTML = entry.stores.map(createStoreButton).join("");
+                var metaText = category + " · " + price + (note ? " · " + note : "");
+
+                var buttonHTML = storeURL
+                    ? '<a class="store-button" href="' + storeURL + '" aria-label="' + linkAriaLabel + '"' + linkTarget + ">Google Play\u2019de Gör</a>"
+                    : "";
 
                 return (
-                    '<article class="app-card" data-stores="' + entry.stores.map(function (s) { return s.type; }).join(",") + '">' +
+                    '<article class="app-card">' +
                         iconHTML +
                         '<div class="app-content">' +
                             '<h2 class="app-name">' + name + "</h2>" +
                             '<p class="app-meta">' + metaText + "</p>" +
                             '<p class="app-description">' + description + "</p>" +
                         "</div>" +
-                        '<div class="app-stores">' + storesHTML + "</div>" +
+                        buttonHTML +
                     "</article>"
                 );
             }
 
-            function render() {
-                var visible = mergedEntries.filter(function (entry) {
-                    if (currentFilter === "all") {
-                        return true;
-                    }
-                    return entry.stores.some(function (store) { return store.type === currentFilter; });
-                });
-
-                statusElement.hidden = true;
-                skeletonsElement.hidden = true;
-
-                if (visible.length === 0) {
-                    appsElement.hidden = true;
-                    emptyStateElement.hidden = false;
-                    return;
-                }
-
-                emptyStateElement.hidden = true;
-                appsElement.innerHTML = visible.map(createAppCard).join("");
-                appsElement.hidden = false;
-            }
-
-            filterButtons.forEach(function (button) {
-                button.addEventListener("click", function () {
-                    currentFilter = button.getAttribute("data-filter");
-                    filterButtons.forEach(function (otherButton) {
-                        otherButton.setAttribute("aria-pressed", String(otherButton === button));
-                    });
-                    render();
-                });
-            });
-
-            statusElement.hidden = true;
-            skeletonsElement.hidden = false;
-
-            Promise.all([
-                fetchAppleApps(),
-                fetchPlayApps()
-            ]).then(function (results) {
-                var appleApps = results[0] || [];
-                var playApps = results[1] || [];
-                mergedEntries = mergeApps(appleApps, playApps);
-                render();
-            }).catch(function () {
-                // Her iki kaynak da kendi içinde hataları yutuyor; bu sadece
-                // beklenmedik bir durum için son bir güvenlik ağı.
-                mergedEntries = mergeApps(appleFallbackApps, []);
-                render();
-            });
+            appsElement.innerHTML = games.map(createAppCard).join("");
         })();
     </script>
 </body>
