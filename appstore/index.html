@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>App Store'a Yönlendiriliyor</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #0b0b0f;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 25px;
+        }
+
+        p {
+            margin: 0 0 24px;
+            color: #a8a8b3;
+            line-height: 1.5;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 14px;
+            background: #087ff5;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>App Store açılıyor…</h1>
+        <p>
+            Otomatik olarak açılmazsa aşağıdaki butona dokun.
+        </p>
+
+        <a
+            href="itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593"
+            id="app-store-button"
+        >
+            App Store’da Aç
+        </a>
+    </main>
+
+    <script>
+        const appStoreURL =
+            "itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593";
+
+        window.addEventListener("load", function () {
+            window.location.href = appStoreURL;
+        });
+    </script>
+</body>
+</html>
