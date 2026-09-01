@@ -6,12 +6,12 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d0f14">
 
-    <title>Kervan Games – Oyunlarımız</title>
+    <title>Kervan Games – Oyunlarımız (App Store)</title>
     <meta name="description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve App Store'dan indirin.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kervan Games">
-    <meta property="og:title" content="Kervan Games – Oyunlarımız">
+    <meta property="og:title" content="Kervan Games – Oyunlarımız (App Store)">
     <meta property="og:description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve App Store'dan indirin.">
 
     <style>
@@ -76,6 +76,20 @@
             color: var(--muted);
             font-size: 15.5px;
             line-height: 1.6;
+        }
+
+        .store-switch {
+            margin: 16px 0 0;
+            font-size: 13.5px;
+        }
+
+        .store-switch a {
+            color: var(--accent-hover);
+            text-decoration: none;
+        }
+
+        .store-switch a:hover {
+            text-decoration: underline;
         }
 
         main {
@@ -177,7 +191,6 @@
 
         .skeleton-line--wide { width: 60%; height: 12px; }
         .skeleton-line--mid { width: 35%; height: 12px; }
-        .skeleton-line--full { width: 90%; height: 12px; }
 
         .app-card {
             display: flex;
@@ -315,7 +328,8 @@
         <header class="page-header">
             <p class="brand">Kervan Games</p>
             <h1>Oyunlarımız</h1>
-            <p class="lead">App Store geliştirici hesabımızdaki tüm oyunlar aşağıda otomatik olarak listelenir.</p>
+            <p class="lead">App Store'daki tüm oyunlarımız aşağıda otomatik olarak listelenir.</p>
+            <p class="store-switch"><a href="../googleplay/">Google Play sürümünü gör →</a></p>
         </header>
 
         <main>
@@ -356,19 +370,16 @@
             "use strict";
 
             var DEVELOPER_ID = "6793952593";
-            var CACHE_KEY = "kervanGamesAppsCacheV1";
             var REQUEST_TIMEOUT_MS = 8000;
 
             var fallbackApps = [
                 {
                     trackId: 6793952591,
                     trackName: "Orbiter: Ring Rush",
-                    primaryGenreName: "Arcade",
+                    primaryGenreName: "Casual",
                     description: "Halkalardan geç, reflekslerini test et ve en yüksek skora ulaş.",
                     formattedPrice: "Ücretsiz",
                     artworkUrl512: "",
-                    averageUserRating: null,
-                    userRatingCount: null,
                     trackViewUrl: "https://apps.apple.com/tr/app/orbiter-ring-rush/id6793952591"
                 }
             ];
@@ -404,8 +415,7 @@
 
             function getStoreURL(app) {
                 var fallbackURL = "https://apps.apple.com/tr/app/id" + encodeURIComponent(String(app.trackId));
-                var url = app.trackViewUrl;
-                return isSafeAppStoreURL(url) ? url : fallbackURL;
+                return isSafeAppStoreURL(app.trackViewUrl) ? app.trackViewUrl : fallbackURL;
             }
 
             function formatPrice(app) {
@@ -418,24 +428,10 @@
                 return "App Store'da gör";
             }
 
-            function formatRating(app) {
-                var rating = Number(app.averageUserRating);
-                var count = Number(app.userRatingCount);
-                if (!rating || !isFinite(rating)) {
-                    return "";
-                }
-                var label = rating.toFixed(1) + " ★";
-                if (count && isFinite(count) && count > 0) {
-                    label += " (" + count.toLocaleString("tr-TR") + ")";
-                }
-                return label;
-            }
-
             function createAppCard(app) {
                 var name = escapeHTML(app.trackName || "Kervan Games");
                 var genre = escapeHTML(app.primaryGenreName || "Oyun");
                 var price = escapeHTML(formatPrice(app));
-                var ratingLabel = formatRating(app);
                 var description = escapeHTML(app.description || "Oyunu App Store üzerinden görüntüleyebilirsin.");
                 var storeURL = escapeHTML(getStoreURL(app));
                 var linkTarget = isIOS ? "" : ' target="_blank" rel="noopener noreferrer"';
@@ -450,7 +446,7 @@
                         escapeHTML(name.charAt(0).toUpperCase()) + "</div>";
                 }
 
-                var metaText = genre + " · " + price + (ratingLabel ? " · " + escapeHTML(ratingLabel) : "");
+                var metaText = genre + " · " + price;
 
                 return (
                     '<article class="app-card">' +
@@ -503,33 +499,6 @@
                 appsElement.hidden = false;
             }
 
-            function readCache() {
-                try {
-                    var raw = window.localStorage.getItem(CACHE_KEY);
-                    if (!raw) {
-                        return null;
-                    }
-                    var parsed = JSON.parse(raw);
-                    if (!parsed || !Array.isArray(parsed.apps) || parsed.apps.length === 0) {
-                        return null;
-                    }
-                    return parsed.apps;
-                } catch (error) {
-                    return null;
-                }
-            }
-
-            function writeCache(apps) {
-                try {
-                    window.localStorage.setItem(CACHE_KEY, JSON.stringify({
-                        timestamp: Date.now(),
-                        apps: apps
-                    }));
-                } catch (error) {
-                    /* Depolama kullanılamıyorsa (gizli mod, kota vb.) sessizce yok say. */
-                }
-            }
-
             function fetchDeveloperApps(onSettled) {
                 var settled = false;
                 var scriptEl = null;
@@ -561,8 +530,7 @@
                 }
 
                 window[callbackName] = function (response) {
-                    var apps = normalizeApps(response && response.results);
-                    finish(apps);
+                    finish(normalizeApps(response && response.results));
                 };
 
                 timeoutId = window.setTimeout(function () {
@@ -585,38 +553,20 @@
                 document.body.appendChild(scriptEl);
             }
 
-            // window.handleDeveloperApps global olarak da tanımlanır (istenen sabit isim);
-            // gerçek JSONP çağrıları yukarıdaki benzersiz callback üzerinden yürütülür ve
-            // birden fazla eşzamanlı istekte çakışma yaşanmaz.
             window.handleDeveloperApps = function (response) {
                 renderApps(normalizeApps(response && response.results));
             };
 
-            var cachedApps = readCache();
+            statusElement.hidden = true;
+            skeletonsElement.hidden = false;
 
-            if (cachedApps) {
-                renderApps(cachedApps);
-                // Arka planda sessizce yenile; başarısız olursa mevcut önbelleklenmiş
-                // veriler ekranda kalmaya devam eder.
-                fetchDeveloperApps(function (freshApps) {
-                    if (freshApps && freshApps.length) {
-                        writeCache(freshApps);
-                        renderApps(freshApps);
-                    }
-                });
-            } else {
-                statusElement.hidden = true;
-                skeletonsElement.hidden = false;
-
-                fetchDeveloperApps(function (freshApps) {
-                    if (freshApps && freshApps.length) {
-                        writeCache(freshApps);
-                        renderApps(freshApps);
-                    } else {
-                        renderApps(null);
-                    }
-                });
-            }
+            fetchDeveloperApps(function (freshApps) {
+                if (freshApps && freshApps.length) {
+                    renderApps(freshApps);
+                } else {
+                    renderApps(null);
+                }
+            });
         })();
     </script>
 </body>
