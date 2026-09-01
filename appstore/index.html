@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>App Store'a Yönlendiriliyor</title>
+    <title>Kervan Games – App Store</title>
 
     <script>
-        const nativeURL =
-            "itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593";
-
         const webURL =
             "https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr";
 
@@ -20,9 +17,7 @@
                 navigator.maxTouchPoints > 1
             );
 
-        if (isIOS) {
-            window.location.replace(nativeURL);
-        } else {
+        if (!isIOS) {
             window.location.replace(webURL);
         }
     </script>
@@ -52,41 +47,44 @@
 
         h1 {
             margin: 0 0 12px;
-            font-size: 25px;
+            font-size: 27px;
         }
 
         p {
-            margin: 0 0 24px;
+            margin: 0 0 26px;
             color: #a8a8b3;
+            font-size: 16px;
             line-height: 1.5;
         }
 
         a {
             display: block;
-            padding: 16px 20px;
+            width: 100%;
+            padding: 17px 20px;
             border-radius: 14px;
             background: #087ff5;
             color: #ffffff;
             text-decoration: none;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 650;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 
 <body>
     <main>
-        <h1>App Store açılıyor…</h1>
-        <p>Otomatik olarak açılmazsa aşağıdaki butona dokun.</p>
+        <h1>Kervan Games</h1>
 
-        <a
-            href="https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr"
-            onclick="
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    this.href='itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593';
-                }
-            "
-        >
+        <p>
+            Oyunlarımızı görüntülemek için App Store’u aç.
+        </p>
+
+        <a href="itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593">
             App Store’da Aç
         </a>
     </main>
