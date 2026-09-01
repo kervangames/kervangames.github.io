@@ -6,6 +6,27 @@
     <meta name="robots" content="noindex, nofollow">
     <title>App Store'a Yönlendiriliyor</title>
 
+    <script>
+        const nativeURL =
+            "itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593";
+
+        const webURL =
+            "https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr";
+
+        const isIOS =
+            /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+            (
+                navigator.platform === "MacIntel" &&
+                navigator.maxTouchPoints > 1
+            );
+
+        if (isIOS) {
+            window.location.replace(nativeURL);
+        } else {
+            window.location.replace(webURL);
+        }
+    </script>
+
     <style>
         * {
             box-sizing: border-box;
@@ -24,7 +45,7 @@
             text-align: center;
         }
 
-        .container {
+        main {
             width: 100%;
             max-width: 420px;
         }
@@ -42,7 +63,6 @@
 
         a {
             display: block;
-            width: 100%;
             padding: 16px 20px;
             border-radius: 14px;
             background: #087ff5;
@@ -55,51 +75,20 @@
 </head>
 
 <body>
-    <main class="container">
-        <h1 id="title">App Store açılıyor…</h1>
+    <main>
+        <h1>App Store açılıyor…</h1>
+        <p>Otomatik olarak açılmazsa aşağıdaki butona dokun.</p>
 
-        <p id="description">
-            Otomatik olarak açılmazsa aşağıdaki butona dokun.
-        </p>
-
-        <a id="app-store-button" href="#">
+        <a
+            href="https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr"
+            onclick="
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    this.href='itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593';
+                }
+            "
+        >
             App Store’da Aç
         </a>
     </main>
-
-    <script>
-        const nativeAppStoreURL =
-            "itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593";
-
-        const webAppStoreURL =
-            "https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr";
-
-        const isIOS =
-            /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-            (
-                navigator.platform === "MacIntel" &&
-                navigator.maxTouchPoints > 1
-            );
-
-        const targetURL = isIOS
-            ? nativeAppStoreURL
-            : webAppStoreURL;
-
-        const button = document.getElementById("app-store-button");
-        const title = document.getElementById("title");
-        const description = document.getElementById("description");
-
-        button.href = targetURL;
-
-        if (!isIOS) {
-            title.textContent = "App Store sayfası açılıyor…";
-            description.textContent =
-                "Otomatik olarak açılmazsa aşağıdaki butona tıkla.";
-        }
-
-        window.addEventListener("load", function () {
-            window.location.replace(targetURL);
-        });
-    </script>
 </body>
 </html>
