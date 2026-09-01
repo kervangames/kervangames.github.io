@@ -56,25 +56,49 @@
 
 <body>
     <main class="container">
-        <h1>App Store açılıyor…</h1>
-        <p>
+        <h1 id="title">App Store açılıyor…</h1>
+
+        <p id="description">
             Otomatik olarak açılmazsa aşağıdaki butona dokun.
         </p>
 
-        <a
-            href="itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593"
-            id="app-store-button"
-        >
+        <a id="app-store-button" href="#">
             App Store’da Aç
         </a>
     </main>
 
     <script>
-        const appStoreURL =
+        const nativeAppStoreURL =
             "itms-apps://itunes.apple.com/tr/developer/emir-furkan-yasar/id6793952593";
 
+        const webAppStoreURL =
+            "https://apps.apple.com/tr/developer/emir-furkan-yasar/id6793952593?l=tr";
+
+        const isIOS =
+            /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+            (
+                navigator.platform === "MacIntel" &&
+                navigator.maxTouchPoints > 1
+            );
+
+        const targetURL = isIOS
+            ? nativeAppStoreURL
+            : webAppStoreURL;
+
+        const button = document.getElementById("app-store-button");
+        const title = document.getElementById("title");
+        const description = document.getElementById("description");
+
+        button.href = targetURL;
+
+        if (!isIOS) {
+            title.textContent = "App Store sayfası açılıyor…";
+            description.textContent =
+                "Otomatik olarak açılmazsa aşağıdaki butona tıkla.";
+        }
+
         window.addEventListener("load", function () {
-            window.location.href = appStoreURL;
+            window.location.replace(targetURL);
         });
     </script>
 </body>
