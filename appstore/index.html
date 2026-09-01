@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0e1a">
 
     <title>Kervan Games – Oyunlarımız</title>
+    <meta name="description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve App Store'dan indirin.">
 
-    <meta
-        name="description"
-        content="Kervan Games tarafından geliştirilen oyunları keşfet."
-    >
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kervan Games">
+    <meta property="og:title" content="Kervan Games – Oyunlarımız">
+    <meta property="og:description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve App Store'dan indirin.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kervan Games – Oyunlarımız">
+    <meta name="twitter:description" content="Kervan Games tarafından geliştirilen mobil oyunları keşfedin ve App Store'dan indirin.">
 
     <style>
         :root {
             color-scheme: dark;
-            --background: #08090d;
-            --surface: #12141b;
-            --surface-hover: #181b24;
-            --border: rgba(255, 255, 255, 0.08);
-            --text: #ffffff;
-            --muted: #9da3b0;
-            --blue: #087ff5;
-            --blue-hover: #2692ff;
+            --bg: #0b0e1a;
+            --bg-soft: #10132a;
+            --surface: #141833;
+            --surface-2: #1a2040;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-accent: rgba(232, 163, 61, 0.3);
+            --ink: #f4f2ec;
+            --ink-dim: #cdd0e2;
+            --muted: #8b90b3;
+            --accent: #e8a33d;
+            --accent-2: #f5c76a;
+            --accent-ink: #221404;
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --shadow: 0 24px 60px rgba(2, 3, 10, 0.55);
+            --focus-ring: 0 0 0 3px rgba(232, 163, 61, 0.55);
         }
 
         * {
@@ -31,98 +45,259 @@
 
         html {
             min-height: 100%;
-            background: var(--background);
+            background: var(--bg);
         }
 
         body {
             margin: 0;
             min-height: 100vh;
             background:
-                radial-gradient(
-                    circle at 50% -20%,
-                    rgba(8, 127, 245, 0.22),
-                    transparent 42%
-                ),
-                var(--background);
-            color: var(--text);
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Helvetica,
-                Arial,
-                sans-serif;
+                radial-gradient(circle at 82% -10%, rgba(232, 163, 61, 0.14), transparent 46%),
+                radial-gradient(circle at 8% 0%, rgba(90, 108, 255, 0.10), transparent 40%),
+                var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .page {
-            width: min(100%, 980px);
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        :focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+            border-radius: var(--radius-sm);
+        }
+
+        .wrap {
+            width: min(100%, 1040px);
             margin: 0 auto;
-            padding: 64px 20px 48px;
+            padding: 0 24px;
         }
 
-        .header {
-            margin-bottom: 40px;
-            text-align: center;
+        /* ---------- Top mark ---------- */
+
+        .top {
+            padding: 28px 0 0;
         }
 
-        .brand {
+        .wordmark {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 18px;
-            color: #82bdff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            color: var(--ink-dim);
+            text-decoration: none;
         }
 
-        .brand-dot {
-            width: 9px;
-            height: 9px;
+        .wordmark-dot {
+            position: relative;
+            width: 16px;
+            height: 16px;
+            flex: none;
             border-radius: 50%;
-            background: var(--blue);
-            box-shadow: 0 0 18px rgba(8, 127, 245, 0.9);
+            border: 1.5px solid var(--accent);
         }
 
-        h1 {
-            margin: 0;
-            font-size: clamp(36px, 7vw, 64px);
-            line-height: 1.05;
-            letter-spacing: -0.045em;
+        .wordmark-dot::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent-2);
+            transform: translate(85%, -180%);
+            box-shadow: 0 0 8px rgba(245, 199, 106, 0.9);
         }
 
-        .header-description {
-            max-width: 560px;
-            margin: 18px auto 0;
-            color: var(--muted);
-            font-size: 17px;
-            line-height: 1.6;
-        }
+        /* ---------- Hero ---------- */
 
-        .status {
-            display: flex;
-            min-height: 180px;
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
             align-items: center;
-            justify-content: center;
-            color: var(--muted);
-            text-align: center;
+            gap: 32px;
+            padding: 56px 0 64px;
+            overflow: hidden;
         }
 
-        .loader {
-            width: 30px;
-            height: 30px;
-            margin: 0 auto 14px;
-            border: 3px solid rgba(255, 255, 255, 0.12);
-            border-top-color: var(--blue);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            margin: 0 0 16px;
+            color: var(--accent-2);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(38px, 5.4vw, 60px);
+            line-height: 1.04;
+            letter-spacing: -0.03em;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 46ch;
+            margin: 20px 0 0;
+            color: var(--ink-dim);
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 13px 22px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--accent-ink);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 150ms ease, background 150ms ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-2);
+            transform: translateY(-1px);
+        }
+
+        .orbit-figure {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            width: min(100%, 360px);
+            margin: 0 auto;
+        }
+
+        .orbit-figure svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .orbit-ring {
+            fill: none;
+            stroke: rgba(232, 163, 61, 0.28);
+            stroke-width: 1;
+        }
+
+        .orbit-ring--tight {
+            stroke: rgba(205, 208, 226, 0.14);
+        }
+
+        .orbit-core {
+            fill: url(#orbitCoreGradient);
+        }
+
+        .orbit-spin {
+            transform-origin: 100px 100px;
+            animation: spin 16s linear infinite;
+        }
+
+        .orbit-spin--slow {
+            animation-duration: 26s;
+            animation-direction: reverse;
         }
 
         @keyframes spin {
             to {
                 transform: rotate(360deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .orbit-spin {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 0 20px;
+                text-align: left;
+            }
+
+            .orbit-figure {
+                width: min(70%, 240px);
+                margin: 8px 0 0;
+                opacity: 0.9;
+            }
+        }
+
+        /* ---------- Games section ---------- */
+
+        .games-section {
+            padding: 12px 0 8px;
+        }
+
+        .section-head {
+            max-width: 60ch;
+            margin-bottom: 28px;
+        }
+
+        .section-head h2 {
+            margin: 0 0 10px;
+            font-size: clamp(26px, 3.4vw, 34px);
+            letter-spacing: -0.02em;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: flex;
+            min-height: 140px;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .status[hidden] {
+            display: none;
+        }
+
+        .loader {
+            width: 26px;
+            height: 26px;
+            margin: 0 auto 14px;
+            border: 3px solid rgba(255, 255, 255, 0.12);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: loaderspin 0.8s linear infinite;
+        }
+
+        @keyframes loaderspin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .loader {
+                animation-duration: 1.6s;
             }
         }
 
@@ -132,34 +307,98 @@
             gap: 18px;
         }
 
+        .apps[hidden],
+        .skeletons[hidden] {
+            display: none;
+        }
+
+        .apps--single {
+            grid-template-columns: minmax(0, 1fr);
+            max-width: 620px;
+        }
+
+        .skeletons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skeleton-card {
+            display: flex;
+            gap: 18px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+        }
+
+        .skeleton-icon,
+        .skeleton-line {
+            border-radius: var(--radius-sm);
+            background: linear-gradient(100deg, var(--surface-2) 30%, rgba(255, 255, 255, 0.08) 50%, var(--surface-2) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 140% 0; }
+            100% { background-position: -40% 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .skeleton-icon,
+            .skeleton-line {
+                animation: none;
+                background: var(--surface-2);
+            }
+        }
+
+        .skeleton-icon {
+            width: 96px;
+            height: 96px;
+            flex: 0 0 96px;
+            border-radius: 22px;
+        }
+
+        .skeleton-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skeleton-line {
+            height: 12px;
+        }
+
+        .skeleton-line--wide { width: 70%; }
+        .skeleton-line--mid { width: 45%; }
+        .skeleton-line--full { width: 100%; height: 30px; margin-top: 6px; border-radius: 10px; }
+
         .app-card {
             display: flex;
             min-width: 0;
             gap: 18px;
-            padding: 20px;
+            padding: 22px;
             border: 1px solid var(--border);
-            border-radius: 22px;
-            background: rgba(18, 20, 27, 0.88);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            transition:
-                transform 160ms ease,
-                border-color 160ms ease,
-                background 160ms ease;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
         }
 
         .app-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(8, 127, 245, 0.35);
-            background: var(--surface-hover);
+            border-color: var(--border-accent);
+            background: var(--surface-2);
         }
 
         .app-icon,
         .app-icon-fallback {
-            width: 104px;
-            height: 104px;
-            flex: 0 0 104px;
+            width: 100px;
+            height: 100px;
+            flex: 0 0 100px;
             border-radius: 23px;
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
         }
@@ -173,14 +412,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(38, 146, 255, 1),
-                    rgba(76, 52, 255, 1)
-                );
-            color: #ffffff;
-            font-size: 40px;
+            background: linear-gradient(150deg, #f5c76a, #e8a33d 55%, #b5680f);
+            color: var(--accent-ink);
+            font-size: 38px;
             font-weight: 800;
         }
 
@@ -193,27 +427,43 @@
 
         .app-name {
             overflow: hidden;
-            margin: 1px 0 5px;
-            font-size: 20px;
+            margin: 1px 0 8px;
+            font-size: 19px;
             line-height: 1.25;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .app-meta {
-            margin: 0 0 10px;
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.4;
+        .app-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 12px;
+        }
+
+        .app-tag {
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--ink-dim);
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+
+        .app-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .app-description {
             display: -webkit-box;
             overflow: hidden;
             margin: 0 0 16px;
-            color: #c3c7d0;
+            color: var(--ink-dim);
             font-size: 14px;
-            line-height: 1.45;
+            line-height: 1.5;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
         }
@@ -222,299 +472,538 @@
             display: inline-flex;
             width: fit-content;
             align-items: center;
-            justify-content: center;
+            gap: 6px;
             margin-top: auto;
-            padding: 10px 15px;
+            padding: 10px 16px;
             border-radius: 11px;
-            background: var(--blue);
-            color: #ffffff;
+            background: var(--accent);
+            color: var(--accent-ink);
             font-size: 14px;
             font-weight: 700;
             text-decoration: none;
             -webkit-tap-highlight-color: transparent;
-            transition:
-                background 150ms ease,
-                transform 150ms ease;
+            transition: background 150ms ease, transform 150ms ease;
         }
 
         .store-button:hover {
-            background: var(--blue-hover);
+            background: var(--accent-2);
         }
 
         .store-button:active {
             transform: scale(0.97);
         }
 
-        .footer {
-            margin-top: 42px;
-            color: #656b77;
-            font-size: 13px;
-            text-align: center;
+        /* ---------- Studio blurb ---------- */
+
+        .studio {
+            margin-top: 64px;
+            padding: 40px 0 64px;
+            border-top: 1px solid var(--border);
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .studio h2 {
+            margin: 0 0 14px;
+            font-size: clamp(24px, 3vw, 30px);
+            letter-spacing: -0.02em;
+        }
+
+        .studio p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15.5px;
+            line-height: 1.7;
+        }
+
+        .studio-values {
+            display: grid;
+            gap: 20px;
+        }
+
+        .studio-value h3 {
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+
+        .studio-value p {
+            font-size: 14.5px;
+            line-height: 1.6;
         }
 
         @media (max-width: 760px) {
-            .page {
-                padding-top: 42px;
+            .studio-grid {
+                grid-template-columns: 1fr;
             }
 
             .apps {
+                grid-template-columns: 1fr;
+            }
+
+            .skeletons {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 440px) {
             .app-card {
-                gap: 15px;
+                gap: 14px;
                 padding: 16px;
-                border-radius: 19px;
+                border-radius: 20px;
             }
 
             .app-icon,
             .app-icon-fallback {
-                width: 86px;
-                height: 86px;
-                flex-basis: 86px;
-                border-radius: 20px;
+                width: 80px;
+                height: 80px;
+                flex-basis: 80px;
+                border-radius: 18px;
             }
 
             .app-name {
-                font-size: 18px;
+                font-size: 17px;
             }
 
             .app-description {
-                -webkit-line-clamp: 1;
+                -webkit-line-clamp: 3;
             }
+        }
+
+        .footer {
+            padding: 30px 0 48px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--ink-dim);
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="page">
-        <header class="header">
-            <div class="brand">
-                <span class="brand-dot"></span>
-                Kervan Games
-            </div>
-
-            <h1>Oyunlarımız</h1>
-
-            <p class="header-description">
-                Kervan Games tarafından geliştirilen oyunları keşfet
-                ve App Store’dan hemen indir.
-            </p>
-        </header>
-
-        <div id="status" class="status">
-            <div>
-                <div class="loader"></div>
-                Oyunlar yükleniyor…
-            </div>
-        </div>
-
-        <main id="apps" class="apps" hidden></main>
-
-        <footer class="footer">
-            © Kervan Games
-        </footer>
+    <div class="wrap top">
+        <a class="wordmark" href="#top">
+            <span class="wordmark-dot" aria-hidden="true"></span>
+            Kervan Games
+        </a>
     </div>
 
+    <header class="wrap hero" id="top">
+        <div class="hero-copy">
+            <p class="hero-eyebrow">Bağımsız mobil oyun stüdyosu</p>
+            <h1>Yörüngede kalmak beceridir.</h1>
+            <p>
+                Kervan Games, sade mekanikleri hızlı refleksle buluşturan mobil
+                arcade oyunları geliştirir. Aşağıda App Store'daki güncel
+                oyunlarımızın tamamını bulabilirsiniz.
+            </p>
+            <a class="hero-cta" href="#games">Oyunları gör</a>
+        </div>
+
+        <div class="orbit-figure" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+                <defs>
+                    <radialGradient id="orbitCoreGradient" cx="35%" cy="35%" r="70%">
+                        <stop offset="0%" stop-color="#f5c76a" />
+                        <stop offset="100%" stop-color="#c17f1f" />
+                    </radialGradient>
+                </defs>
+                <circle class="orbit-ring" cx="100" cy="100" r="92" />
+                <circle class="orbit-ring orbit-ring--tight" cx="100" cy="100" r="70" />
+                <circle class="orbit-ring" cx="100" cy="100" r="48" />
+                <g class="orbit-spin">
+                    <circle cx="100" cy="8" r="5" fill="#f5c76a" />
+                </g>
+                <g class="orbit-spin orbit-spin--slow">
+                    <circle cx="100" cy="30" r="3.5" fill="#cdd0e2" opacity="0.8" />
+                </g>
+                <circle class="orbit-core" cx="100" cy="100" r="20" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <section class="wrap games-section" id="games" aria-labelledby="games-heading">
+            <div class="section-head">
+                <h2 id="games-heading">Oyunlarımız</h2>
+                <p>
+                    App Store geliştirici hesabımızdaki tüm oyunlar bu listede
+                    otomatik olarak görünür.
+                </p>
+            </div>
+
+            <div id="status" class="status">
+                <div>
+                    <div class="loader"></div>
+                    Oyunlar yükleniyor…
+                </div>
+            </div>
+
+            <div id="skeletons" class="skeletons" hidden aria-hidden="true">
+                <div class="skeleton-card">
+                    <div class="skeleton-icon"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton-line skeleton-line--wide"></div>
+                        <div class="skeleton-line skeleton-line--mid"></div>
+                        <div class="skeleton-line skeleton-line--full"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-icon"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton-line skeleton-line--wide"></div>
+                        <div class="skeleton-line skeleton-line--mid"></div>
+                        <div class="skeleton-line skeleton-line--full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="apps" class="apps" hidden></div>
+        </section>
+
+        <section class="wrap studio" aria-labelledby="studio-heading">
+            <div class="studio-grid">
+                <div>
+                    <h2 id="studio-heading">Nasıl oyun yapıyoruz</h2>
+                    <p>
+                        Her oyunumuz tek bir mekaniğin etrafında kurulur ve o
+                        mekaniğin olabilecek en akıcı haline gelene kadar
+                        sadeleştirilir. Unity üzerinde geliştiriyor, mobilde
+                        elde hissettirdiği doğallığı önceliklendiriyoruz.
+                    </p>
+                </div>
+
+                <div class="studio-values">
+                    <div class="studio-value">
+                        <h3>Tek mekanik, derin his</h3>
+                        <p>Karmaşık menüler yerine anında anlaşılan, ama ustalaşması zaman alan kontroller.</p>
+                    </div>
+                    <div class="studio-value">
+                        <h3>Kısa oturumlar</h3>
+                        <p>Otobüs beklerken de, molada da rahatça oynanabilecek oyun süreleri.</p>
+                    </div>
+                    <div class="studio-value">
+                        <h3>Sürekli cilalama</h3>
+                        <p>Yayından sonra da geri bildirimlere göre ince ayar yapmaya devam ediyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-row">
+            <span id="footer-text">© Kervan Games</span>
+            <a href="https://github.com/kervangames" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </footer>
+
     <script>
-        const developerId = "6793952593";
+        (function () {
+            "use strict";
 
-        const fallbackApps = [
-            {
-                trackId: 6793952591,
-                trackName: "Orbiter: Ring Rush",
-                primaryGenreName: "Casual",
-                description:
-                    "Halkalardan geç, reflekslerini test et ve en yüksek skora ulaş.",
-                formattedPrice: "Ücretsiz",
-                artworkUrl512: "",
-                trackViewUrl:
-                    "https://apps.apple.com/tr/app/orbiter-ring-rush/id6793952591"
-            }
-        ];
+            var DEVELOPER_ID = "6793952593";
+            var CACHE_KEY = "kervanGamesAppsCacheV1";
+            var REQUEST_TIMEOUT_MS = 8000;
 
-        const statusElement = document.getElementById("status");
-        const appsElement = document.getElementById("apps");
-
-        const isIOS =
-            /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-            (
-                navigator.platform === "MacIntel" &&
-                navigator.maxTouchPoints > 1
-            );
-
-        function escapeHTML(value) {
-            return String(value ?? "").replace(
-                /[&<>"']/g,
-                function (character) {
-                    const entities = {
-                        "&": "&amp;",
-                        "<": "&lt;",
-                        ">": "&gt;",
-                        "\"": "&quot;",
-                        "'": "&#039;"
-                    };
-
-                    return entities[character];
+            var fallbackApps = [
+                {
+                    trackId: 6793952591,
+                    trackName: "Orbiter: Ring Rush",
+                    primaryGenreName: "Arcade",
+                    description: "Halkalardan geç, reflekslerini test et ve en yüksek skora ulaş.",
+                    formattedPrice: "Ücretsiz",
+                    artworkUrl512: "",
+                    averageUserRating: null,
+                    userRatingCount: null,
+                    trackViewUrl: "https://apps.apple.com/tr/app/orbiter-ring-rush/id6793952591"
                 }
-            );
-        }
+            ];
 
-        function getStoreURL(app) {
-            const fallbackURL =
-                "https://apps.apple.com/tr/app/id" + app.trackId;
+            var statusElement = document.getElementById("status");
+            var skeletonsElement = document.getElementById("skeletons");
+            var appsElement = document.getElementById("apps");
+            var footerText = document.getElementById("footer-text");
 
-            const webURL = app.trackViewUrl || fallbackURL;
+            footerText.textContent = "© " + new Date().getFullYear() + " Kervan Games";
 
-            if (!isIOS) {
-                return webURL;
+            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+            function escapeHTML(value) {
+                return String(value == null ? "" : value).replace(/[&<>"']/g, function (character) {
+                    var entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#039;" };
+                    return entities[character];
+                });
             }
 
-            return webURL.replace(
-                /^https?:\/\/apps\.apple\.com/i,
-                "itms-apps://apps.apple.com"
-            );
-        }
-
-        function getTargetAttribute() {
-            if (isIOS) {
-                return "";
+            function isSafeAppStoreURL(value) {
+                if (typeof value !== "string") {
+                    return false;
+                }
+                try {
+                    var parsed = new URL(value, window.location.href);
+                    return parsed.protocol === "https:" && /(^|\.)apple\.com$/i.test(parsed.hostname);
+                } catch (error) {
+                    return false;
+                }
             }
 
-            return ' target="_blank" rel="noopener noreferrer"';
-        }
-
-        function createAppCard(app) {
-            const name = escapeHTML(app.trackName || "Kervan Games");
-            const genre = escapeHTML(
-                app.primaryGenreName || "Oyun"
-            );
-            const price = escapeHTML(
-                app.formattedPrice || "App Store"
-            );
-            const description = escapeHTML(
-                app.description ||
-                "Oyunu App Store üzerinden görüntüleyebilirsin."
-            );
-            const storeURL = escapeHTML(getStoreURL(app));
-
-            let iconHTML;
-
-            if (app.artworkUrl512) {
-                iconHTML = `
-                    <img
-                        class="app-icon"
-                        src="${escapeHTML(app.artworkUrl512)}"
-                        alt="${name} uygulama ikonu"
-                        loading="lazy"
-                    >
-                `;
-            } else {
-                iconHTML = `
-                    <div class="app-icon-fallback" aria-hidden="true">
-                        ${escapeHTML(name.charAt(0).toUpperCase())}
-                    </div>
-                `;
+            function getStoreURL(app) {
+                var fallbackURL = "https://apps.apple.com/tr/app/id" + encodeURIComponent(String(app.trackId));
+                var url = app.trackViewUrl;
+                return isSafeAppStoreURL(url) ? url : fallbackURL;
             }
 
-            return `
-                <article class="app-card">
-                    ${iconHTML}
+            function formatPrice(app) {
+                if (app.formattedPrice) {
+                    return app.formattedPrice;
+                }
+                if (app.price === 0) {
+                    return "Ücretsiz";
+                }
+                return "App Store'da gör";
+            }
 
-                    <div class="app-content">
-                        <h2 class="app-name">${name}</h2>
+            function formatRating(app) {
+                var rating = Number(app.averageUserRating);
+                var count = Number(app.userRatingCount);
+                if (!rating || !isFinite(rating)) {
+                    return "";
+                }
+                var label = rating.toFixed(1) + " ★";
+                if (count && isFinite(count) && count > 0) {
+                    label += " (" + count.toLocaleString("tr-TR") + ")";
+                }
+                return label;
+            }
 
-                        <p class="app-meta">
-                            ${genre} · ${price}
-                        </p>
+            function createAppCard(app) {
+                var name = escapeHTML(app.trackName || "Kervan Games");
+                var genre = escapeHTML(app.primaryGenreName || "Oyun");
+                var price = escapeHTML(formatPrice(app));
+                var description = escapeHTML(app.description || "Oyunu App Store üzerinden görüntüleyebilirsin.");
+                var storeURL = escapeHTML(getStoreURL(app));
+                var ratingLabel = escapeHTML(formatRating(app));
+                var linkTarget = isIOS ? "" : ' target="_blank" rel="noopener noreferrer"';
+                var linkAriaLabel = escapeHTML(name + " uygulamasını App Store'da görüntüle");
 
-                        <p class="app-description">
-                            ${description}
-                        </p>
+                var iconHTML;
+                if (app.artworkUrl512 || app.artworkUrl100) {
+                    var iconSrc = escapeHTML(app.artworkUrl512 || app.artworkUrl100);
+                    iconHTML = '<img class="app-icon" src="' + iconSrc + '" alt="" loading="lazy">';
+                } else {
+                    iconHTML = '<div class="app-icon-fallback" aria-hidden="true">' +
+                        escapeHTML(name.charAt(0).toUpperCase()) + "</div>";
+                }
 
-                        <a
-                            class="store-button"
-                            href="${storeURL}"
-                            ${getTargetAttribute()}
-                        >
-                            App Store’da Gör
-                        </a>
-                    </div>
-                </article>
-            `;
-        }
+                var ratingHTML = ratingLabel
+                    ? '<span class="app-tag app-rating">' + ratingLabel + "</span>"
+                    : "";
 
-        function displayApps(apps) {
-            const uniqueApps = Array.from(
-                new Map(
-                    apps.map(function (app) {
-                        return [app.trackId, app];
-                    })
-                ).values()
-            );
-
-            uniqueApps.sort(function (firstApp, secondApp) {
-                const firstDate = new Date(
-                    firstApp.currentVersionReleaseDate ||
-                    firstApp.releaseDate ||
-                    0
+                return (
+                    '<article class="app-card">' +
+                        iconHTML +
+                        '<div class="app-content">' +
+                            '<h3 class="app-name">' + name + "</h3>" +
+                            '<div class="app-tags">' +
+                                '<span class="app-tag">' + genre + "</span>" +
+                                '<span class="app-tag">' + price + "</span>" +
+                                ratingHTML +
+                            "</div>" +
+                            '<p class="app-description">' + description + "</p>" +
+                            '<a class="store-button" href="' + storeURL + '" aria-label="' + linkAriaLabel + '"' + linkTarget + ">" +
+                                "App Store\u2019da Gör" +
+                            "</a>" +
+                        "</div>" +
+                    "</article>"
                 );
+            }
 
-                const secondDate = new Date(
-                    secondApp.currentVersionReleaseDate ||
-                    secondApp.releaseDate ||
-                    0
-                );
+            function normalizeApps(rawResults) {
+                if (!Array.isArray(rawResults)) {
+                    return [];
+                }
 
-                return secondDate - firstDate;
-            });
-
-            appsElement.innerHTML = uniqueApps
-                .map(createAppCard)
-                .join("");
-
-            statusElement.hidden = true;
-            appsElement.hidden = false;
-        }
-
-        function handleDeveloperApps(response) {
-            const apps = Array.isArray(response.results)
-                ? response.results.filter(function (result) {
-                    return (
+                var filtered = rawResults.filter(function (result) {
+                    return result &&
+                        result.wrapperType === "software" &&
                         result.kind === "software" &&
-                        String(result.artistId) === developerId
-                    );
-                })
-                : [];
+                        String(result.artistId) === DEVELOPER_ID &&
+                        result.trackId != null;
+                });
 
-            if (apps.length > 0) {
-                displayApps(apps);
-                return;
+                var deduped = Array.from(
+                    new Map(filtered.map(function (app) { return [app.trackId, app]; })).values()
+                );
+
+                deduped.sort(function (a, b) {
+                    var dateA = new Date(a.currentVersionReleaseDate || a.releaseDate || 0).getTime();
+                    var dateB = new Date(b.currentVersionReleaseDate || b.releaseDate || 0).getTime();
+                    return dateB - dateA;
+                });
+
+                return deduped;
             }
 
-            displayApps(fallbackApps);
-        }
+            function renderApps(apps) {
+                var list = apps && apps.length ? apps : fallbackApps;
 
-        function handleLookupError() {
-            displayApps(fallbackApps);
-        }
+                appsElement.innerHTML = list.map(createAppCard).join("");
+                appsElement.classList.toggle("apps--single", list.length === 1);
 
-        const lookupScript = document.createElement("script");
+                statusElement.hidden = true;
+                skeletonsElement.hidden = true;
+                appsElement.hidden = false;
+            }
 
-        lookupScript.src =
-            "https://itunes.apple.com/lookup" +
-            "?id=" + encodeURIComponent(developerId) +
-            "&entity=software" +
-            "&country=tr" +
-            "&limit=200" +
-            "&callback=handleDeveloperApps";
+            function readCache() {
+                try {
+                    var raw = window.localStorage.getItem(CACHE_KEY);
+                    if (!raw) {
+                        return null;
+                    }
+                    var parsed = JSON.parse(raw);
+                    if (!parsed || !Array.isArray(parsed.apps) || parsed.apps.length === 0) {
+                        return null;
+                    }
+                    return parsed.apps;
+                } catch (error) {
+                    return null;
+                }
+            }
 
-        lookupScript.async = true;
-        lookupScript.onerror = handleLookupError;
+            function writeCache(apps) {
+                try {
+                    window.localStorage.setItem(CACHE_KEY, JSON.stringify({
+                        timestamp: Date.now(),
+                        apps: apps
+                    }));
+                } catch (error) {
+                    /* Depolama kullanılamıyorsa (gizli mod, kota vb.) sessizce yok say. */
+                }
+            }
 
-        document.body.appendChild(lookupScript);
+            function fetchDeveloperApps(onSettled) {
+                var settled = false;
+                var scriptEl = null;
+                var timeoutId = null;
+                var callbackName = "__kervanAppsCallback_" + Date.now() + "_" + Math.floor(Math.random() * 1e6);
+
+                function cleanup() {
+                    if (timeoutId !== null) {
+                        window.clearTimeout(timeoutId);
+                        timeoutId = null;
+                    }
+                    if (scriptEl && scriptEl.parentNode) {
+                        scriptEl.parentNode.removeChild(scriptEl);
+                    }
+                    try {
+                        delete window[callbackName];
+                    } catch (error) {
+                        window[callbackName] = undefined;
+                    }
+                }
+
+                function finish(apps) {
+                    if (settled) {
+                        return;
+                    }
+                    settled = true;
+                    cleanup();
+                    onSettled(apps);
+                }
+
+                window[callbackName] = function (response) {
+                    var apps = normalizeApps(response && response.results);
+                    finish(apps);
+                };
+
+                timeoutId = window.setTimeout(function () {
+                    finish(null);
+                }, REQUEST_TIMEOUT_MS);
+
+                scriptEl = document.createElement("script");
+                scriptEl.src = "https://itunes.apple.com/lookup" +
+                    "?id=" + encodeURIComponent(DEVELOPER_ID) +
+                    "&entity=software" +
+                    "&country=tr" +
+                    "&limit=200" +
+                    "&_=" + Date.now() +
+                    "&callback=" + callbackName;
+                scriptEl.async = true;
+                scriptEl.onerror = function () {
+                    finish(null);
+                };
+
+                document.body.appendChild(scriptEl);
+            }
+
+            // window.handleDeveloperApps global olarak da tanımlanır (istenen sabit isim);
+            // gerçek JSONP çağrıları yukarıdaki benzersiz callback üzerinden yürütülür ve
+            // birden fazla eşzamanlı istekte çakışma yaşanmaz.
+            window.handleDeveloperApps = function (response) {
+                renderApps(normalizeApps(response && response.results));
+            };
+
+            var cachedApps = readCache();
+
+            if (cachedApps) {
+                renderApps(cachedApps);
+                // Arka planda sessizce yenile; başarısız olursa mevcut önbelleklenmiş
+                // veriler ekranda kalmaya devam eder.
+                fetchDeveloperApps(function (freshApps) {
+                    if (freshApps && freshApps.length) {
+                        writeCache(freshApps);
+                        renderApps(freshApps);
+                    }
+                });
+            } else {
+                statusElement.hidden = true;
+                skeletonsElement.hidden = false;
+
+                fetchDeveloperApps(function (freshApps) {
+                    if (freshApps && freshApps.length) {
+                        writeCache(freshApps);
+                        renderApps(freshApps);
+                    } else {
+                        renderApps(null);
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 </html>
